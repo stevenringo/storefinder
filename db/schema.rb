@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20110131021054) do
 
   create_table "stores", :force => true do |t|
     t.string    "lmaa",          :limit => 8,  :null => false
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string    "postcode",      :limit => 4,  :null => false
     t.timestamp "created_at",    :limit => 6
     t.timestamp "updated_at",    :limit => 6
+    t.decimal   "lat"
+    t.decimal   "lng"
   end
 
 end

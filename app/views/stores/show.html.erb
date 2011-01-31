@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>lmaa:</b>
+  <%= @store.lmaa %>
+</p>
+<p>
+  <b>name:</b>
+  <%= @store.customer_code %>
+</p>
+
+<p>
+  <b>Lng:</b>
+  <%= @store.lng %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @store.lat %>
+</p>
+
+
+<%= link_to 'Edit', edit_store_path(@store) %> |
+<%= link_to 'Back', stores_path %>
