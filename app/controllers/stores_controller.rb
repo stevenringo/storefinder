@@ -2,11 +2,16 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.xml
   def index
-    @stores = Store.all
-
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @stores }
+      format.html do
+        @stores = Store.all
+      end
+      format.xml do
+        search_lng = params[:lng]
+        search_lat = params[:lat]
+        distance   = params[:distance]
+        @stores = Store.within(distance, :origin => [search_lat, search_lng])
+      end
     end
   end
 
