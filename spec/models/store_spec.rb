@@ -7,33 +7,22 @@ describe Store do
     end 
     
     it "should geolocate when possessing a valid address" do
-      store = Store.make(:lat => nil, :lng => nil) #it's safe to assume machinist address is valid, given the purpose of this test?
-      store.geocode_address
-      #success (valid lat/lng)?
+      store = Store.make(:lat => nil, :lng => nil) #is it safe to assume machinist address is valid, given the purpose of this test?
+      lambda {
+        store.geocode_address
+      }.should_not raise_error
     end
     
     it "should throw a GeocodeError when not possessing a valid address" do
-      store = Store.make(:address_1 => "invalid address",:lat => nil, :lng => nil)
-      store.geocode_address
-      #success (error thrown)?
+      store = Store.make(:address_1 => "SHOPS 6 & 19 CAMPUS SHOPPING VILLAGE", 
+                         :address_2 => "MCGREGOR ROAD",
+                         :suburb    => "SMITHFIELD",
+                         :state     => "QLD",
+                         :postcode  => "4878",
+                         :lat       => nil, 
+                         :lng       => nil)
+      lambda { 
+        store.geocode_address 
+      }.should raise_error(Geokit::Geocoders::GeocodeError)
     end
 end
-
-
-# 
-# describe Message do
-#    it "should create a new Message given valid attributes" do
-#       Message.make
-#    end
-# 
-#    it "should not be empty" do
-#       blank_message = Message.make(:msg=>"")
-#       blank_message.should_not be_valid
-#    end
-# 
-#    it "should be less than 2500 characters long" do  
-#       long_msg = "A" * 2501
-#       long_message = Message.make(:msg=>long_msg)
-#       long_message.should_not be_valid
-#    end
-# end
