@@ -5,6 +5,7 @@ class Store < ActiveRecord::Base
     "#{address_1} #{address_2}, #{suburb}, #{state}, #{postcode}, Australia"
   end
   
+  
   def geocode_address
 	  loc = Store.geocode(address)
   	lat = loc.lat

@@ -3,3 +3,9 @@ development:
   database: McWilliamsStores
   username: tristan
   host: localhost
+
+test:
+  adapter: postgresql
+  database: McWilliamsStoresTest
+  username: tristan
+  host: localhost
