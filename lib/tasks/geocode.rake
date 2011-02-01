@@ -7,6 +7,7 @@ namespace :geocode do
     stores.each_with_index do |store,index|
     	begin
         store.geocode_address
+        store.save!
       	puts "#{index+1} of #{store_count} geocoded"
   	  rescue Geokit::Geocoders::GeocodeError => exception
   	    puts exception.message

@@ -10,6 +10,5 @@ class Store < ActiveRecord::Base
 	  loc = Store.geocode(address)
   	lat = loc.lat
   	lng = loc.lng
-  	save!
   end
 end
