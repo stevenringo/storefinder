@@ -11,7 +11,7 @@ class Store < ActiveRecord::Base
   
   def geocode_address
 	  loc = Store.geocode(address)
-  	lat = loc.lat
-  	lng = loc.lng
+  	self.lat = loc.lat
+  	self.lng = loc.lng
   end
 end
