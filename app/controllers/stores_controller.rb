@@ -10,7 +10,7 @@ class StoresController < ApplicationController
         search_lng = params[:lng]
         search_lat = params[:lat]
         distance   = params[:distance]
-        @stores = Store.within(distance, :origin => [search_lat, search_lng])
+        @stores = Store.within(distance,:units => :kms, :origin => [search_lat, search_lng])
       end
     end
   end
