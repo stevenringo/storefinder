@@ -1,5 +1,6 @@
 class Store < ActiveRecord::Base
   acts_as_mappable
+  #ADD VALIDATION HERE
   
   def address_short
     "#{address_1} #{address_2} #{suburb}"
