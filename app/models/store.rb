@@ -1,6 +1,7 @@
 class Store < ActiveRecord::Base
   acts_as_mappable
-  #ADD VALIDATION HERE
+  validates_presence_of :lat, :on => :create, :message => "can't be blank"
+  validates_presence_of :lng, :on => :create, :message => "can't be blank"
   
   def address_short
     "#{address_1} #{address_2} #{suburb}"

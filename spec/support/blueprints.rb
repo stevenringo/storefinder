@@ -31,6 +31,8 @@ Store.blueprint do
   suburb        {""}
   state         {""}
   postcode      {""}
+  lat           {0.00}
+  lng           {0.00}
 end
 
 Store.blueprint(:valid_address) do
