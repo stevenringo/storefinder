@@ -14,7 +14,7 @@
 
     function load() {
       map = new google.maps.Map(document.getElementById("map"), {
-        center: new google.maps.LatLng(40, -100),
+        center: new google.maps.LatLng(-26, 134),
         zoom: 4,
         mapTypeId: 'roadmap',
         mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
@@ -32,7 +32,6 @@
 
    function searchLocations() {
      var address = document.getElementById("addressInput").value + ", australia";
-		 console.log(address);
      var geocoder = new google.maps.Geocoder();
      geocoder.geocode({address: address}, function(results, status) {
        if (status == google.maps.GeocoderStatus.OK) {
@@ -78,6 +77,17 @@
          createMarker(latlng, name, address);
          bounds.extend(latlng);
        }
+			if (markerNodes.length==0){
+				var sw = new google.maps.LatLng(
+             parseFloat(center.lat()-0.1),
+             parseFloat(center.lng())-0.1);
+				var ne = new google.maps.LatLng(
+		         parseFloat(center.lat()+0.1),
+		         parseFloat(center.lng()+0.1));
+				bounds.extend(sw);
+				bounds.extend(ne);
+				
+			}
        map.fitBounds(bounds);
        locationSelect.style.visibility = "visible";
        locationSelect.onchange = function() {
