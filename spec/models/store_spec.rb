@@ -17,14 +17,24 @@ describe Store do
   
     it "should find correct latitude after geolocating with a valid address" do
       store = Store.make(:valid_address)
+      
+      mock_location = mock(Object.new)
+      mock_location.lat { -33.8947932 }
+      mock_location.lng { 0.0 } 
+      mock(Store).geocode(store.address) { mock_location }
+      
       store.geocode_address
       store.lat.should be_within(0.01).of(-33.8947932)
-      #store.should validate_presence_of :lat
-      #TEST VALIDATION
     end
     
     it "should find correct longitude after geolocating with a valid address" do
       store = Store.make(:valid_address) 
+      
+      mock_location = mock(Object.new)
+      mock_location.lat { 0 }
+      mock_location.lng { 151.1869711 } 
+      mock(Store).geocode(store.address) { mock_location }
+      
       store.geocode_address
       store.lng.should be_within(0.01).of(151.1869711)
     end

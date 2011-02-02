@@ -6,7 +6,7 @@ gem 'web-app-theme', '>= 0.6.2'
 gem 'geokit'
 gem 'geokit-rails3'
 gem 'annotation'
-
+gem 'rr'
 
 group :test do
   gem "rspec-rails", "~> 2.4"
