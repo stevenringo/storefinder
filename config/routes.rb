@@ -1,4 +1,6 @@
 StoreLocator::Application.routes.draw do
+  namespace :admin do resources :stores end
+
   resources :stores
 
   # The priority is based upon order of creation:
