@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Twitter 2.0</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>JSONP sample</h1>
+    <div id='store-list'>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var url = "http://picard.local:3000/stores.json?lat=-33.7394458&lng=151.2099082&distance=10";
+        $.getJSON(url + "&callback=?", null, function(stores) {
+          for (i in stores) {
+            store = stores[i];
+            $("#store-list").append(store.address + "<hr />");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
