@@ -9,8 +9,8 @@
     </div>
     <script type="text/javascript">
       $(document).ready(function() {
-        var url = "http://picard.local:3000/stores.json?lat=-33.7394458&lng=151.2099082&distance=10";
-        $.getJSON(url + "&callback=?", null, function(stores) {
+        var url = "http://localhost:3000/stores.json?lat=-33.7394458&lng=151.2099082&distance=10&callback=?";
+        $.getJSON(url, null, function(stores) {
           for (i in stores) {
             store = stores[i];
             $("#store-list").append(store.address + "<hr />");
