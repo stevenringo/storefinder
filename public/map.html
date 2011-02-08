@@ -77,17 +77,17 @@
          createMarker(latlng, name, address);
          bounds.extend(latlng);
        }
-			if (markerNodes.length==0){
-				var sw = new google.maps.LatLng(
+      if (markerNodes.length==0){
+        var sw = new google.maps.LatLng(
              parseFloat(center.lat()-0.1),
              parseFloat(center.lng())-0.1);
-				var ne = new google.maps.LatLng(
-		         parseFloat(center.lat()+0.1),
-		         parseFloat(center.lng()+0.1));
-				bounds.extend(sw);
-				bounds.extend(ne);
-				
-			}
+        var ne = new google.maps.LatLng(
+             parseFloat(center.lat()+0.1),
+             parseFloat(center.lng()+0.1));
+        bounds.extend(sw);
+        bounds.extend(ne);
+        
+      }
        map.fitBounds(bounds);
        locationSelect.style.visibility = "visible";
        locationSelect.onchange = function() {
