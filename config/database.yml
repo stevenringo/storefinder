@@ -1,11 +1,11 @@
 development:
   adapter: postgresql
   database: McWilliamsStores
-  username: tristan
+  username: steven
   host: localhost
 
 test:
   adapter: postgresql
   database: McWilliamsStoresTest
-  username: tristan
+  username: steven
   host: localhost
