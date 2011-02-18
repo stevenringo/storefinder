@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(:version => 20110131021054) do
     t.string    "suburb",        :limit => 40, :null => false
     t.string    "state",         :limit => 4,  :null => false
     t.string    "postcode",      :limit => 4,  :null => false
-    t.timestamp "created_at",    
-    t.timestamp "updated_at",    
+    t.timestamp "created_at"
+    t.timestamp "updated_at"    
     t.decimal   "lat"
     t.decimal   "lng"
   end
