@@ -18,7 +18,7 @@ class StoresController < ApplicationController
         distance   = params[:distance]
         @stores = Store.within(distance,:units => :kms, :origin => [search_lat, search_lng])
         render :json => @stores.to_json(:methods => "address",
-                                        :only => ["lat", "lng"]), 
+                                        :only => ["lat", "lng", "distance", "name"]), 
                :callback => params[:callback]
       end
     end
