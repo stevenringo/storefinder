@@ -1,11 +1,13 @@
 development:
   adapter: postgresql
-  database: McWilliamsStores
+  database: TasteTheDifference
   username: steven
   host: localhost
+  template: template0
 
 test:
   adapter: postgresql
-  database: McWilliamsStoresTest
+  database: TasteTheDifferenceTest
   username: steven
   host: localhost
+  template: template0
