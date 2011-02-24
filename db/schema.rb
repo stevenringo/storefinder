@@ -10,9 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110131021054) do
+ActiveRecord::Schema.define(:version => 20110224092334) do
 
-  create_table "stores", :force => true do |t|
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.integer  "products_stores_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stores", :id => false, :force => true do |t|
     t.string    "lmaa",          :limit => 8,  :null => false
     t.string    "customer_code", :limit => 8,  :null => false
     t.string    "name",          :limit => 80, :null => false
@@ -21,10 +28,18 @@ ActiveRecord::Schema.define(:version => 20110131021054) do
     t.string    "suburb",        :limit => 40, :null => false
     t.string    "state",         :limit => 4,  :null => false
     t.string    "postcode",      :limit => 4,  :null => false
-    t.timestamp "created_at"
-    t.timestamp "updated_at"    
+    t.timestamp "created_at",    :limit => 6
+    t.timestamp "updated_at",    :limit => 6
+    t.integer   "id",                          :null => false
     t.decimal   "lat"
     t.decimal   "lng"
+  end
+
+  create_table "stores_products", :force => true do |t|
+    t.integer  "store_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
