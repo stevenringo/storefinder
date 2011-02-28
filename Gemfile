@@ -6,7 +6,7 @@ gem 'geokit-rails3'
 
 group :test, :development do
   gem 'web-app-theme', '>= 0.6.2'
-  gem 'annotation'
+  gem 'annotate'
   gem "rspec-rails", "~> 2.4"
   gem 'rr'
   gem "wirble" 
