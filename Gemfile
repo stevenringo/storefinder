@@ -2,13 +2,17 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 gem 'pg'
-gem 'web-app-theme', '>= 0.6.2'
 gem 'geokit-rails3'
-gem 'annotation'
-gem 'rr'
 
 group :test, :development do
+  gem 'web-app-theme', '>= 0.6.2'
+  gem 'annotation'
   gem "rspec-rails", "~> 2.4"
+  gem 'rr'
+  gem "wirble" 
+  gem "wirb" 
+  gem "hirb" 
+  gem "awesome_print", :require => "ap" 
 end
 
 group :test do
