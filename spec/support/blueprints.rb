@@ -1,5 +1,9 @@
 require 'machinist/active_record'
 
+Product.blueprint do
+  name          { "Some strange Shiraz" }
+end
+
 Store.blueprint do
   customer_code { "0213387" }
   name          { "BWS Somewhere" }
