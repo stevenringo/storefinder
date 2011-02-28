@@ -12,7 +12,8 @@ group :test, :development do
   gem "wirble" 
   gem "wirb" 
   gem "hirb" 
-  gem "awesome_print", :require => "ap" 
+  gem "awesome_print", :require => "ap"
+  gem 'spork', '~> 0.9.0.rc'
 end
 
 group :test do
