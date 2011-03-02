@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20110224092334) do
     t.datetime "updated_at"
   end
 
-  create_table "stores_products", :force => true do |t|
-    t.integer  "store_id"
+  create_table "products_stores", :id => false, :force => true do |t|
     t.integer  "product_id"
+    t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

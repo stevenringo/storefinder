@@ -59,13 +59,15 @@ function clearLocations() {
 function searchLocationsNear(center) {
   clearLocations();
   var radius = document.getElementById('radiusSelect').value;
+  var product = document.getElementById('productSelect').value;
 //  var searchUrl = 'http://mcwstorefinder.com:3000/stores.json?lat=' + center.lat() + '&lng=' + center.lng() + '&distance=' + radius + '&callback=?';
-  var searchUrl = '/stores.json?lat=' + center.lat() + '&lng=' + center.lng() + '&distance=' + radius + '&callback=?';
+  var searchUrl = '/stores.json?lat=' + center.lat() + '&lng=' + center.lng() + '&product=' + product + '&distance=' + radius + '&callback=?';
   var bounds = new google.maps.LatLngBounds();
   $.getJSON(searchUrl, null, function(stores) {
+    var noResults = true;
     for (i in stores) {
+      noResults = false;
       store = stores[i];
-      var markerNodes = i;
       var name = store.name;
       var address = store.address;
       var distance = parseFloat(store.distance);
@@ -74,7 +76,7 @@ function searchLocationsNear(center) {
       createMarker(latlng, name, address);
       bounds.extend(latlng);
     }
-    if (markerNodes.length == 0) {
+    if (noResults) {
       var sw = new google.maps.LatLng(
       parseFloat(center.lat() - 0.1), parseFloat(center.lng()) - 0.1);
       var ne = new google.maps.LatLng(
@@ -88,6 +90,9 @@ function searchLocationsNear(center) {
       var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
       google.maps.event.trigger(markers[markerNum], 'click');
     };
+    if (noResults) {
+      alert('No stores could be found. Try broadening your search');
+    }
   });
 }
 

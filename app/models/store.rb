@@ -1,4 +1,5 @@
 class Store < ActiveRecord::Base
+  has_and_belongs_to_many :products
   acts_as_mappable
   validates_presence_of :lat, :on => :create, :message => "can't be blank"
   validates_presence_of :lng, :on => :create, :message => "can't be blank"
